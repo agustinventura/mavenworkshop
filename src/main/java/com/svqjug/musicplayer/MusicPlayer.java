@@ -1,8 +1,13 @@
 package com.svqjug.musicplayer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileNotFoundException;
 
 public class MusicPlayer {
+
+    private static Logger logger = LoggerFactory.getLogger(MusicPlayer.class);
     private final Playlist playlist;
     private String currentSong;
 
@@ -17,10 +22,10 @@ public class MusicPlayer {
         try {
             currentSong = playlist.get(songName);
         } catch (FileNotFoundException e) {
-            System.out.println("Song " + songName + " is not in playlist");
+            logger.error("Song " + songName + " is not in playlist");
             throw new MusicPlayerException(MusicPlayerException.NOT_IN_PLAYLIST_SONG_MESSAGE);
         }
-        System.out.println("Playing " + currentSong);
+        logger.info("Playing " + currentSong);
     }
 
     public void add(String songName) {
