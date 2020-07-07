@@ -1,4 +1,4 @@
-# mavenworkshop
+# Maven Workshop
 SVQJUG Maven 101 Workshop Examples
 
 This is a demo project intending to illustrate different stages of a project using Maven.
